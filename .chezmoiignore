@@ -1,0 +1,8 @@
+# 忽略缓存、状态、临时文件
+.chezmoi/chezmoiistate.boltdb
+.DS_Store
+node_modules
+tmp/
+cache/
+*.log
+*.tmp
