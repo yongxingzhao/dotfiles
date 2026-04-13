@@ -17,4 +17,13 @@ if [ -z "$MITCE_SID" ] || [ -z "$MITCE_TOKEN" ]; then
   exit 1
 fi
 
+OS=$(uname -s)
+
+if [ "$OS" = "Darwin" ]; then
+  # 苹果系统执行这里
+  echo "macOS 系统"
+else
+  # Linux 系统执行这里
+  sudo sh -c 'sed -i "/# GitHub520 Host Start/Q" /etc/hosts && curl https://raw.hellogithub.com/hosts >> /etc/hosts'
+fi
 curl -L -o $HOME/.config/mihomo/config.yaml "https://app.mitce.net/?sid=$MITCE_SID&token=$MITCE_TOKEN&app=clashverge"
