@@ -20,8 +20,7 @@ fi
 OS=$(uname -s)
 
 if [ "$OS" = "Darwin" ]; then
-  # 苹果系统执行这里
-  echo "macOS 系统"
+  sudo sed -i "" "/# GitHub520 Host Start/,/# Github520 Host End/d" /etc/hosts && curl https://raw.hellogithub.com/hosts | sudo tee -a /etc/hosts
 else
   # Linux 系统执行这里
   sudo sh -c 'sed -i "/# GitHub520 Host Start/Q" /etc/hosts && curl https://raw.hellogithub.com/hosts >> /etc/hosts'
