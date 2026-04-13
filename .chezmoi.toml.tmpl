@@ -3,6 +3,7 @@
 [data]
     name = {{ $name | quote }}
     email = {{ $email | quote }}
+    gitSign = true
 
 [chezmoi]
     sourceDir = "~/.local/share/chezmoi"
@@ -30,8 +31,8 @@
     # 更新前自动拉取
     pre = ["git pull"]  
 
-# 用 age/gpg 加密敏感文件
+# 用 gpg 加密敏感文件
 # [encryption]
-#     algorithm = "age"
-#     age = { recipient = "age1xxxx..." }
+#     algorithm = "gpg"
+#     gpg = { recipient = "gpg1xxxx..." }
 
