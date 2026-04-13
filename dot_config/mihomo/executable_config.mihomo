@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.23/mihomo-linux-amd64-v1.19.23.gz
+
+# 检查 .env 是否存在
+if [ ! -f .env ]; then
+  echo "错误：未找到 .env 文件"
+  exit 1
+fi
+
+MITCE_SID=$(grep '^MITCE_SID=' .env | cut -d '=' -f2-)
+MITCE_TOKEN=$(grep '^MITCE_TOKEN=' .env | cut -d '=' -f2-)
+
+# 2. 检查变量是否存在
+if [ -z "$MITCE_SID" ] || [ -z "$MITCE_TOKEN" ]; then
+  echo "错误：请配置 .env 中的 MITCE_SID 和 MITCE_TOKEN"
+  exit 1
+fi
+
+curl -L -o $HOME/.config/mihomo/config.yaml "https://app.mitce.net/?sid=$MITCE_SID&token=$MITCE_TOKEN&app=clashverge"
