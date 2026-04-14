@@ -1,17 +1,37 @@
 # System
+## mac
 *.DS_Store*
+## windows
 Thumbs.db
 
 # Env
 .env*
-.venv/
 
 # Editor
+## idea
 .idea/
+## vscode
 .vscode/
-*.swp / *.swo
+## vim
+*.swp 
+*.swo
 
 # Builder
+## maven
+# target/
+
+## nodejs
 node_modules/
 dist/
+
+## python
+__pycache__/
+*.pyc
+.venv/
+
+## go
+vendor/
+
+
+
 
