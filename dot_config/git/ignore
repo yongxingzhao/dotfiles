@@ -1,0 +1,17 @@
+# System
+*.DS_Store*
+Thumbs.db
+
+# Env
+.env*
+.venv/
+
+# Editor
+.idea/
+.vscode/
+*.swp / *.swo
+
+# Builder
+node_modules/
+dist/
+
