@@ -1,36 +1,35 @@
 {{- $name := promptStringOnce . "name" "Your name:" -}}
 {{- $email := promptStringOnce . "email" "Email address:" -}}
 [data]
-    name = {{ $name | quote }}
-    email = {{ $email | quote }}
-    gitSign = true
+  name = {{ $name | quote }}
+  email = {{ $email | quote }}
+  gitSign = true
 
 [chezmoi]
-    sourceDir = "~/.local/share/chezmoi"
-    editor = "nvim"
-    color = "auto"
-    progress = true
+  sourceDir = "~/.local/share/chezmoi"
+  editor = "nvim"
+  color = "auto"
+  progress = true
 
 [source]
-    url = "https://github.com/yongxingzhao/dotfiles.git"
+  url = "https://github.com/yongxingzhao/dotfiles.git"
+
+[diff]
+#  command = "code"
+#  args = ["--wait", "--diff"]
+#  exclude = []
 
 [git]
-    autoPush = true
-    autoCommit = true
-    pull = true
-    stage = true
-
-# [diff]
-#     exclude = []
+  autoadd = false
+  autopush = true
+  autoCommit = true
 
 [merge]
-    command = "nvim"
-    args = ["-d"]
+  command = "nvim"
+  args = ["-d"]
 
 [update]
-    # 更新前自动拉取
-    pre = ["git pull"]  
-
+    apply = true
 # 用 gpg 加密敏感文件
 # [encryption]
 #     algorithm = "gpg"

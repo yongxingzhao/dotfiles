@@ -34,9 +34,8 @@ alias nvimrc="v ~/.config/nvim/init.lua"
 # ==============================
 # ****** @Command chezmoi ******
 # ==============================
-#
-alias ce="chezmoi edit"
 alias ca="chezmoi add"
+alias ce="chezmoi edit"
 
 # ==============================
 # ****** @Command joshuto ******
