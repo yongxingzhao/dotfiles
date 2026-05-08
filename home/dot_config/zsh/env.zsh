@@ -64,6 +64,7 @@ export SDKMAN_DIR="/opt/sdkman"
 # ****** @User Zellij ******
 # ==========================
 #
+export ZELLIJ_CONFIG_DIR="$HOME/.config/zellij"
 export ZELLIJ_AUTO_ATTACH=true
 
 # =================================
