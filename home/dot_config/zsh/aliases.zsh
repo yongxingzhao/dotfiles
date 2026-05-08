@@ -1,3 +1,4 @@
+source $HOME/.config/shell/aliases
 # =====================
 # ****** @System ******
 # =====================
@@ -42,13 +43,10 @@ alias ce="chezmoi edit"
 # ==============================
 alias l="joshuto"
 
-
-# ****** @Command tmux ******
-# ===========================
-alias ta="tmux attach -t"
-alias tn="tmux new -s"
-alias tls="tmux ls"
-alias tks="tmux kill-session -t"
+# =============================
+# ****** @Command zellij ******
+# =============================
+alias zj="zellij"
 
 # ===========================
 # ****** @Command lazygit ******

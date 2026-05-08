@@ -1,0 +1,33 @@
+# ===================
+# ***** @System *****
+# ===================
+#
+#XDG_CONFIG
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+#editor
+if command -v nvim >/dev/null 2>&1; then
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+elif command -v vim >/dev/null 2>&1; then
+  export EDITOR='vim'
+  export VISUAL='vim'
+else
+  export EDITOR='vi'
+  export VISUAL='vi'
+fi
+
+export GIT_EDITOR="$EDITOR"
+export SUDO_EDITOR="$EDITOR"
+
+
+# ==================
+# ****** @Git ******
+# ==================
+#
+export GIT_CONFIG_GLOBAL="$HOME/.config/git/config"
+export GIT_CREDENTIALS="$HOME/.config/git/credentials"
+export GIT_IGNORE="$HOME/.config/git/ignore"
