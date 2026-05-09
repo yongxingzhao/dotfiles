@@ -1,12 +1,11 @@
 [user]
     name = yoxi
 {{ if eq .chezmoi.os "darwin" }}
-# darwin
 	email = yongxingzhao@foxmail.com
 {{ else if eq .chezmoi.os "linux" }}
 	email = yongxingzhao@{{ .chezmoi.hostname }}
 {{ else }}
-# other operating system
+	email = yongxingzhao@{{ .chezmoi.hostname }}
 {{ end }}
 [core]
      pager = delta
