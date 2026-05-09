@@ -289,7 +289,7 @@ theme_dark "tokyo-night"
 // Theme to use when the host terminal reports a light color palette.
 // Requires `theme_dark` to also be set; otherwise `theme` is used.
 // 
-theme_light "tokyo-night-light"
+theme_light "catppuccin-latte"
  
 // Choose the base input mode of zellij.
 // Default: normal
