@@ -4,8 +4,7 @@
 # darwin
 	email = yongxingzhao@foxmail.com
 {{ else if eq .chezmoi.os "linux" }}
-# linux
-	email = yongxingzhao@YoXi-Arch
+	email = yongxingzhao@{{ .chezmoi.hostname }}
 {{ else }}
 # other operating system
 {{ end }}
