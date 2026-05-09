@@ -7,3 +7,7 @@ cache/
 *.log
 *.tmp
 
+
+{{- if ne .chezmoi.hostname "YoXi-Arch" }}
+.work # only manage .work on work-laptop
+{{- end }}
