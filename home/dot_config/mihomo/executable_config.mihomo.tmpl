@@ -17,12 +17,14 @@ if [ -z "$MITCE_SID" ] || [ -z "$MITCE_TOKEN" ]; then
   exit 1
 fi
 
-OS=$(uname -s)
+{{ if eq .chezmoi.os "darwin" }}
+# darwin
+sudo sed -i "" "/# GitHub520 Host Start/,/# Github520 Host End/d" /etc/hosts && curl https://raw.hellogithub.com/hosts | sudo tee -a /etc/hosts
+{{ else if eq .chezmoi.os "linux" }}
+# linux
+sudo sh -c 'sed -i "/# GitHub520 Host Start/Q" /etc/hosts && curl https://raw.hellogithub.com/hosts >> /etc/hosts'
+{{ else }}
+# other operating system
+{{ end }}
 
-if [ "$OS" = "Darwin" ]; then
-  sudo sed -i "" "/# GitHub520 Host Start/,/# Github520 Host End/d" /etc/hosts && curl https://raw.hellogithub.com/hosts | sudo tee -a /etc/hosts
-else
-  # Linux 系统执行这里
-  sudo sh -c 'sed -i "/# GitHub520 Host Start/Q" /etc/hosts && curl https://raw.hellogithub.com/hosts >> /etc/hosts'
-fi
 curl -L -o $HOME/.config/mihomo/config.yaml "https://app.mitce.net/?sid=$MITCE_SID&token=$MITCE_TOKEN&app=clashverge"
