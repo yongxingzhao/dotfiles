@@ -26,8 +26,13 @@
   autoCommit = true
 
 [merge]
-  command = "nvim"
-  args = ["-d"]
+    command = "nvim"
+    args = [
+        "-d",
+        {{ printf "%q" "{{ .Destination }}" }},
+        {{ printf "%q" "{{ .Source }}" }},
+        {{ printf "%q" "{{ .Target }}" }},
+    ]
 
 [update]
     apply = true
