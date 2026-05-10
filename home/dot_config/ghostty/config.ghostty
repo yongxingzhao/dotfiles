@@ -8,6 +8,7 @@ window-padding-y = 12
 window-decoration = false
 background-opacity = 0.8
 background-blur = true
+background-blur-radius = 30
 cursor-style = bar
 cursor-style-blink = true
 scrollback-limit = 10000
