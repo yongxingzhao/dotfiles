@@ -1,0 +1,42 @@
+patch:
+  speller:
+    algebra:
+      - erase/^xx$/
+      - derive/^([jqxy])u$/$1v/
+      - derive/^([aoe])([ioun])$/$1$1$2/
+      - xform/^([aoe])(ng)?$/$1$1$2/
+      - xform/iu$/Ⓠ/
+      - xform/(.)ei$/$1Ⓦ/
+      - xform/uan$/Ⓡ/
+      - xform/[uv]e$/Ⓣ/
+      - xform/un$/Ⓨ/
+      - xform/^sh/Ⓤ/
+      - xform/^ch/Ⓘ/
+      - xform/^zh/Ⓥ/
+      - xform/uo$/Ⓞ/
+      - xform/ie$/Ⓟ/
+      - xform/(.)i?ong$/$1Ⓢ/
+      - xform/ing$|uai$/Ⓚ/
+      - xform/(.)ai$/$1Ⓓ/
+      - xform/(.)en$/$1Ⓕ/
+      - xform/(.)eng$/$1Ⓖ/
+      - xform/[iu]ang$/Ⓛ/
+      - xform/(.)ang$/$1Ⓗ/
+      - xform/ian$/Ⓜ/
+      - xform/(.)an$/$1Ⓙ/
+      - xform/(.)ou$/$1Ⓩ/
+      - xform/[iu]a$/Ⓧ/
+      - xform/iao$/Ⓝ/
+      - xform/(.)ao$/$1Ⓒ/
+      - xform/ui$/Ⓥ/
+      - xform/in$/Ⓑ/
+      # 模糊拼音（在 xlit 之前，用圈字母匹配）
+      - derive/Ⓕ/Ⓖ/          # en ↔ eng
+      - derive/Ⓖ/Ⓕ/
+      - derive/Ⓙ/Ⓓ/          # an ↔ ai
+      - derive/Ⓓ/Ⓙ/
+      - derive/Ⓨ/Ⓢ/          # un ↔ ong
+      - derive/Ⓢ/Ⓨ/
+      - derive/Ⓑ/Ⓚ/          # in ↔ ing
+      - derive/Ⓚ/Ⓑ/
+      - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/
