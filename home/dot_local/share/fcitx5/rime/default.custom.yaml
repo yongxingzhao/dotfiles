@@ -1,0 +1,10 @@
+patch:
+  __include: rime_ice_suggestion:/
+  
+  # 小鹤双拼
+  schema_list:
+    - schema: double_pinyin_flypy
+  # 方案选单快捷键
+  switcher:
+    hotkeys:
+      - F4
