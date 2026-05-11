@@ -1,6 +1,6 @@
 language = zh
-font-family = "JetBrains Mono"
-font-size = 14
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 13
 font-thicken = true
 macos-titlebar-style = transparent
 theme = light:TokyoNight Day,dark:TokyoNight Night
