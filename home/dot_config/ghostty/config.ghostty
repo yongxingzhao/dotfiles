@@ -1,8 +1,5 @@
 language = zh
 font-family = JetBrainsMono Nerd Font Mono
-font-family-bold = JetBrainsMono NFM Bold
-font-family-italic = JetBrainsMono NFM Italic
-font-family-bold-italic = JetBrainsMono NFM Bold Italic
 font-size = 14
 font-thicken = true
 macos-titlebar-style = transparent
@@ -20,6 +17,7 @@ scrollback-limit = 1000000
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 3
 macos-option-as-alt = left
+#confirm-close-surface = false
 clipboard-paste-protection = true
 clipboard-paste-bracketed-safe = true
 copy-on-select = clipboard
