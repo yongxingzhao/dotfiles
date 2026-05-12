@@ -13,6 +13,7 @@ background-blur = true
 background-blur-radius = 30
 cursor-style = bar
 cursor-style-blink = true
+confirm-close-surface = false
 scrollback-limit = 1000000
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 3
