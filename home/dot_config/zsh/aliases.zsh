@@ -48,6 +48,7 @@ alias l="joshuto"
 # ****** @Command zellij ******
 # =============================
 alias zj="zellij"
+alias zja="zellij attach -c"
 
 # ===========================
 # ****** @Command lazygit ******
