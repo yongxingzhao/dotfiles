@@ -6,8 +6,12 @@ local del = vim.keymap.del
 
 pcall(del, "i", "jk")
 map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
-map("n", "<leader>dl", ":diffget 1<cr>", { desc = "diffget from left" })
-map("n", "<leader>dr", ":diffget 3<cr>", { desc = "diffget from right" })
+map("n", "do1", ":diffget 1<cr>", { desc = "diffget from tab1" })
+map("n", "do2", ":diffget 2<cr>", { desc = "diffget from tab2" })
+map("n", "do3", ":diffget 3<cr>", { desc = "diffget from tab3" })
+map("n", "dp1", ":diffput 1<cr>", { desc = "diffput to tab1" })
+map("n", "dp2", ":diffput 2<cr>", { desc = "diffput to tab2" })
+map("n", "dp3", ":diffput 3<cr>", { desc = "diffput to tab3" })
 
 map("i", "<Tab>", function()
   return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
