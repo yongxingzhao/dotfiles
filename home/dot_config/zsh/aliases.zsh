@@ -40,9 +40,9 @@ alias ce="chezmoi edit"
 alias cs="chezmoi status"
 
 # ==============================
-# ****** @Command joshuto ******
+# ****** @Command yazi ******
 # ==============================
-alias l="joshuto"
+alias l="yazi"
 
 # =============================
 # ****** @Command zellij ******
