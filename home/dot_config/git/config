@@ -1,6 +1,6 @@
 [user]
-    name = yoxi
-    email = yongxingzhao@foxmail.com
+    name = {{ .name }}
+    email = {{ .email }}
 	signingkey = ~/.ssh/id_ed25519.pub
 [core]
     pager = delta
