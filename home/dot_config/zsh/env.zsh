@@ -23,12 +23,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
 
 # =========================
-# ****** @Git ******
 # =========================
 #
-export GIT_CONFIG_GLOBAL="$HOME/.config/git/config"
-export GIT_CREDENTIALS="$HOME/.config/git/credentials"
-export GIT_IGNORE="$HOME/.config/git/ignore"
 
 # =========================
 # ****** @User Go ******
