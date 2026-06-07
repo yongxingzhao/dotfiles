@@ -3,12 +3,10 @@ source $HOME/.config/shell/aliases
 # ****** @System ******
 # =====================
 alias cat='bat --style=plain --paging=never --color auto'
-alias md="mkdir -pv"
-alias rd="rmdir -pv"
 alias dss="dust -d 1"
 alias dsr="dust -r -d 1"
 alias dsn="dust -rn 10"
-alias zshrc="nvim $HOME/.config/zsh/zshrc"
+alias zshrc="$EDITOR $HOME/.config/zsh/zshrc"
 
 # ==========================
 # ****** @Command eza ******
@@ -34,7 +32,7 @@ alias vimrc="vim $HOME/.vim/vimrc"
 alias v="nvim"
 alias vi="sudo nvim"
 alias nv="v ~/.config/nvim/"
-alias nvimrc="v ~/.config/nvim/init.lua"
+alias nvimrc="nvim ~/.config/nvim/init.lua"
 
 # ==============================
 # ****** @Command chezmoi ******
