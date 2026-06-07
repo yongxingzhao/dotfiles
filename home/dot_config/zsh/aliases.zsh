@@ -7,6 +7,7 @@ alias md="mkdir -pv"
 alias rd="rmdir -pv"
 alias dss="dust -d 1"
 alias dsr="dust -r -d 1"
+alias dsn="dust -rn 10"
 alias zshrc="vim $HOME/.config/zsh/zshrc"
 
 # ==========================
