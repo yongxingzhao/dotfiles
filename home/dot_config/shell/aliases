@@ -1,4 +1,6 @@
-
+alias dur='du -sh * 2>/dev/null | sort -rh'
+# top10
+alias dun='du -sh * 2>/dev/null | sort -rh | head -10'
 # ===========================
 # ****** @Command tmux ******
 # ===========================
