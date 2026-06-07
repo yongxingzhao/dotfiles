@@ -41,11 +41,6 @@ alias ca="chezmoi add"
 alias ce="chezmoi edit"
 alias cs="chezmoi status"
 
-# ==============================
-# ****** @Command yazi ******
-# ==============================
-alias yz="yazi"
-
 # =============================
 # ****** @Command zellij ******
 # =============================
