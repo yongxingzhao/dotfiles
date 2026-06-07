@@ -2,6 +2,7 @@ source $HOME/.config/shell/aliases
 # =====================
 # ****** @System ******
 # =====================
+alias cat='bat --style=plain --paging=never --color auto'
 alias md="mkdir -pv"
 alias rd="rmdir -pv"
 alias zshrc="vim $HOME/.config/zsh/zshrc"
