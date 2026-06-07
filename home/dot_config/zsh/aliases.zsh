@@ -8,7 +8,7 @@ alias rd="rmdir -pv"
 alias dss="dust -d 1"
 alias dsr="dust -r -d 1"
 alias dsn="dust -rn 10"
-alias zshrc="vim $HOME/.config/zsh/zshrc"
+alias zshrc="nvim $HOME/.config/zsh/zshrc"
 
 # ==========================
 # ****** @Command eza ******
