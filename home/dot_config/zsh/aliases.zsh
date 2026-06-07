@@ -44,7 +44,7 @@ alias cs="chezmoi status"
 # ==============================
 # ****** @Command yazi ******
 # ==============================
-alias l="yazi"
+alias yz="yazi"
 
 # =============================
 # ****** @Command zellij ******
