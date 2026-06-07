@@ -5,6 +5,8 @@ source $HOME/.config/shell/aliases
 alias cat='bat --style=plain --paging=never --color auto'
 alias md="mkdir -pv"
 alias rd="rmdir -pv"
+alias dss="dust -d 1"
+alias dsr="dust -r -d 1"
 alias zshrc="vim $HOME/.config/zsh/zshrc"
 
 # ==========================
