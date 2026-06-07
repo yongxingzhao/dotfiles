@@ -2,7 +2,6 @@ source $HOME/.config/shell/aliases
 # =====================
 # ****** @System ******
 # =====================
-alias cat='bat --style=plain --paging=never --color auto'
 alias dss="dust -d 1"
 alias dsr="dust -r -d 1"
 alias dsn="dust -rn 10"
