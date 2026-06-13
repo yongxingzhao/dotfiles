@@ -1,0 +1,11 @@
+# yazi keymap.toml
+# Scroll preview with Ctrl+e/Ctrl+y
+[[mgr.prepend_keymap]]
+on = ["<C-e>"]
+run = "seek 5"
+desc = "Scroll preview down 5 lines"
+
+[[mgr.prepend_keymap]]
+on = ["<C-y>"]
+run = "seek -5"
+desc = "Scroll preview up 5 lines"
