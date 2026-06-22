@@ -49,3 +49,10 @@ __pycache__/
 ## go
 vendor/
 
+# Keys and Credentials
+*.pem
+*.key
+credentials.json
+.npmrc
+.aws/
+.ssh/
