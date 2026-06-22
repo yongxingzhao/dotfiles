@@ -10,11 +10,28 @@ Thumbs.db
 # Editor
 ## idea
 .idea/
+
 ## vscode
 .vscode/
+
 ## vim
 *.swp 
 *.swo
+
+## claudecode
+.claude/
+
+## cursor
+.cursor/
+
+## aider
+.aider*
+
+## continue
+.continue/
+
+## cody
+.cody/
 
 # Builder
 ## maven
