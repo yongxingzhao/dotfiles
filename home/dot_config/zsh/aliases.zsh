@@ -5,7 +5,7 @@ source $HOME/.config/shell/aliases
 alias dss="dust -d 1"
 alias dsr="dust -r -d 1"
 alias dsn="dust -rn 10"
-alias zshrc="$EDITOR $HOME/.config/zsh/zshrc"
+alias zshrc="$EDITOR $ZSHRC"
 
 # ==========================
 # ****** @Command eza ******
