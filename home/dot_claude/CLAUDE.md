@@ -48,7 +48,3 @@
 - 修改 .env、密钥、token、证书、CI/CD 配置
 - git push、git rebase、git reset --hard、强制推送
 - 公开发布（npm publish、生产部署等）
-
-# 记忆
-- 跨会话保存用户偏好和上下文
-- 将重要信息存储在 memory 文件中
