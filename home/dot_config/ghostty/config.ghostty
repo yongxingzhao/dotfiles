@@ -1,5 +1,6 @@
 language = zh
 font-family = JetBrains Mono
+font-family = Sarasa Fixed SC
 font-size = 14
 font-thicken = true
 macos-titlebar-style = transparent
