@@ -1,4 +1,0 @@
-{{- if ne .chezmoi.hostname "YoXi-Arch" }}
-.config/hyde
-.local/share/fcitx5
-{{- end }}
