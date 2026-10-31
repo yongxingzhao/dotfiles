@@ -6,5 +6,6 @@
 {{- if ne .chezmoi.hostname "YoXi-Arch" }}
 .config/hyde
 .config/hypr
+.config/waybar
 .local/share/fcitx5
 {{- end }}
