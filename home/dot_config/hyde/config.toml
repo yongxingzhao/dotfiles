@@ -3,5 +3,8 @@
 # Updated config.toml file can be found at $HOME/.local/share/hyde/config.toml
 "$schema" = "https://raw.githubusercontent.com/HyDE-Project/HyDE/refs/heads/master/Configs/.local/share/hyde/schema/config.toml.json"
 
+# OCR（Super+Ctrl+S）识别语言：tesseract 的 -l 参数，空格分隔
+SCREENSHOT_OCR_TESSERACT_LANGUAGES = "eng chi_sim"
+
 [weather]
 location = "34.26,108.94"
