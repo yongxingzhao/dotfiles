@@ -64,7 +64,6 @@ hl.config({
 	-- was nvidia.conf: cursor:no_hardware_cursors = true
 	cursor = { no_hardware_cursors = true },
 })
--- 注: 旧配置里的 misc.disable_hyprland_pipeline 在 Hyprland 0.56 已不存在，未移植。
 
 -- ---- fcitx5 输入法 (was userprefs.conf, Wayland 下 Electron/GTK 必需) ----
 hl.env("GTK_IM_MODULE", "fcitx")
@@ -92,9 +91,6 @@ end)
 hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1.25 })
 hl.monitor({ output = "HDMI-A-1", mode = "2560x1440@60", position = "1920x0", scale = 1.25 })
 
--- ---- workspace 绑定 (was workspaces.conf) --------------------------------
--- 方案B: 不绑定具体 monitor, 工作空间可在多块屏间自由切换 (Hyprland 默认行为)
--- 单屏时也完全正常: 所有工作空间落到唯一存在的屏
 -- ---- window rules (was windowrules.conf) ---------------------------------
 -- 画中画 (原样移植)
 hl.window_rule({
@@ -144,3 +140,76 @@ hl.window_rule({
 hl.bind(MOD .. " + T", hl.dsp.exec_cmd("prime-run kitty"), {
 	description = "[Launcher|Apps] terminal emulator",
 })
+
+-- ---- 合盖迁移 v2: lid 轮询 (2026-11-01) ------------------------------
+-- 根因: 本机 logind HandleLidSwitch=ignore, 合盖不会移除 eDP-1 连接器,
+--       monitor.removed 事件永远不会触发 => v1(事件监听)方案必然无效。
+-- 方案: hl.timer 每 2s 轮询 ACPI lid state, 主动开关内屏:
+--   合盖 + HDMI 在线 + eDP 启用 -> 禁用 eDP-1
+--     (Hyprland 内置 lifecycle 自动迁移工作区/窗口到外屏, v0.57 实测通过)
+--   开盖 + eDP 被禁 -> 恢复 eDP-1
+--   HDMI 不在线 + eDP 被禁 -> 强制恢复 (兜底, 防止无屏可用)
+-- 日志: /tmp/lid-switch.log (仅状态切换时写入)
+
+local LID_STATE_FILE = "/proc/acpi/button/lid/LID0/state"
+local INT_MONITOR = "eDP-1"
+local EXT_MONITOR = "HDMI-A-1"
+
+local function lid_is_closed()
+	local f = io.open(LID_STATE_FILE, "r")
+	if not f then
+		return nil
+	end
+	local s = f:read("*a")
+	f:close()
+	return s:find("closed", 1, true) ~= nil
+end
+
+-- 返回: true=启用 / false=被禁 / nil=不存在
+local function monitor_state(name)
+	for _, m in ipairs(hl.get_monitors({ all = true })) do
+		if m.name == name then
+			return m.enabled
+		end
+	end
+	return nil
+end
+
+local function lid_log(msg)
+	local f = io.open("/tmp/lid-switch.log", "a")
+	if f then
+		f:write(os.date("%m-%d %H:%M:%S ") .. msg .. "\n")
+		f:close()
+	end
+end
+
+local function set_internal_disabled(disabled, why)
+	local ok, err = pcall(hl.monitor, { output = INT_MONITOR, disabled = disabled })
+	lid_log((disabled and "OFF " or "ON  ") .. INT_MONITOR .. "  (" .. why .. ")  ok=" .. tostring(ok) .. (err and ("  err=" .. tostring(err)) or ""))
+end
+
+hl.timer(function()
+	local closed = lid_is_closed()
+	if closed == nil then
+		return -- ACPI 节点异常, 不动作
+	end
+	local ext = monitor_state(EXT_MONITOR)
+	local int = monitor_state(INT_MONITOR)
+	if int == nil then
+		return -- 内屏异常缺席, 不动作
+	end
+
+	if closed and ext == true and int == true then
+		-- 合盖: 内屏窗口自动迁往外屏
+		set_internal_disabled(true, "lid closed, " .. EXT_MONITOR .. " online")
+	elseif (not closed) and int == false then
+		-- 开盖: 恢复内屏
+		set_internal_disabled(false, "lid opened")
+	elseif ext == nil and int == false then
+		-- 外屏没了但内屏被禁: 强制恢复, 保证至少一屏可用
+		set_internal_disabled(false, EXT_MONITOR .. " gone, safety")
+	end
+end, { timeout = 2000, type = "repeat" })
+
+lid_log("config loaded, lid timer armed")
+
