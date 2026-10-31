@@ -54,12 +54,11 @@ local MOD = hyde.config.modifiers.main
 -- ---- input / misc (was userprefs.conf) ----------------------------------
 hl.config({
 	input = {
-		follow_mouse = 1,
 		touchpad = { natural_scroll = true },
 	},
 	misc = {
 		enable_swallow = true,
-		swallow_regex = [[(foot|kitty|allacritty|Alacritty|ghostty|Ghostty|org.wezfurlong.wezterm)]],
+		swallow_regex = [[(foot|kitty|Alacritty|ghostty|Ghostty|org.wezfurlong.wezterm)]],
 	},
 	-- was nvidia.conf: cursor:no_hardware_cursors = true
 	cursor = { no_hardware_cursors = true },
@@ -89,19 +88,18 @@ end)
 
 -- ---- monitors (was monitors.conf) ----------------------------------------
 hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1.25 })
-hl.monitor({ output = "HDMI-A-1", mode = "2560x1440@60", position = "1920x0", scale = 1.25 })
+-- 2026-11-01: 坐标修正 1920x0 -> 1536x0
+-- eDP-1 1920x1080@1.25 逻辑宽 1536，原 1920 会在两屏间留 384px 空隙
+hl.monitor({ output = "HDMI-A-1", mode = "2560x1440@60", position = "1536x0", scale = 1.25 })
 
 -- ---- window rules (was windowrules.conf) ---------------------------------
 -- 画中画 (原样移植)
+-- 画中画: 上游 hyde_pin 已覆盖 float/move/size/pin, 此处只补上游没有的 keep_aspect_ratio
 hl.window_rule({
 	name = "yoxi_picture_in_picture",
 	match = { title = [[^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$]] },
-	tag = "+picture-in-picture,+hyde_picture_in_picture",
-	float = true,
+	tag = "+hyde_pin",
 	keep_aspect_ratio = true,
-	move = "(monitor_w*0.73) (monitor_h*0.72)",
-	size = "(monitor_w*0.25) (monitor_h*0.25)",
-	pin = true,
 })
 
 -- 浮动规则
