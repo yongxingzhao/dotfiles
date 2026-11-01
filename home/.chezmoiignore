@@ -7,5 +7,6 @@
 .config/hyde
 .config/hypr
 .config/waybar
+.config/fcitx5
 .local/share/fcitx5
 {{- end }}
