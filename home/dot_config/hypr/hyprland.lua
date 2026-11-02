@@ -77,9 +77,8 @@ hl.env("GLFW_IM_MODULE", "ibus") -- GLFW 用 ibus 协议, fcitx 也支持
 -- env.lua 在检测到 nvidia 时自动设置，这里只补用户独有的 NVD_BACKEND。
 hl.env("NVD_BACKEND", "direct")
 
--- ---- 启动 fcitx5 (was exec-once = fcitx5 -d --replace) -------------------
+-- ---- fcitx5 改由 XDG autostart 统一管理 (app-org.fcitx.Fcitx5@autostart); 此处仅导入 IM 环境变量 ----
 hl.on("hyprland.start", function()
-	hl.exec_cmd("fcitx5 -d --replace")
 	-- 将输入法环境变量导入 systemd --user，使菜单/服务启动的 GUI 应用(QQ等)也能继承
 	hl.exec_cmd(
 		"systemctl --user import-environment GTK_IM_MODULE QT_IM_MODULE QT4_IM_MODULE XMODIFIERS SDL_IM_MODULE GLFW_IM_MODULE"
