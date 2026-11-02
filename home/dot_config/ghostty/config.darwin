@@ -1,5 +1,6 @@
 # macOS 专用覆盖 —— 1080p 1x 无 HiDPI，字体需放大
 font-size = 13
+window-colorspace = display-p3
 
 # --- 以下为 macOS 专属配置（从通用 config.ghostty 迁移，Linux 上无效）---
 macos-titlebar-style = hidden
