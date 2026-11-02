@@ -3,7 +3,6 @@ font-family = Sarasa Fixed SC
 font-family = Noto Sans Mono CJK SC
 font-size = 9
 font-thicken = true
-theme = light:TokyoNight Day,dark:JetBrains Darcula
 window-padding-x = 10
 window-padding-y = 10
 window-decoration = none
