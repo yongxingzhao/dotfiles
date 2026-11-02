@@ -10,3 +10,8 @@
 .config/fcitx5
 .local/share/fcitx5
 {{- end }}
+
+# 仅 YoXi-Mac 生效，其他主机（含 Arch）不部署 macOS 专用覆盖
+{{- if ne .chezmoi.hostname "YoXi-Mac" }}
+.config/ghostty/config.darwin
+{{- end }}

@@ -4,7 +4,6 @@ font-family = Sarasa Fixed SC
 font-family = Noto Sans Mono CJK SC
 font-size = 10
 font-thicken = true
-macos-titlebar-style = transparent
 theme = light:TokyoNight Day,dark:TokyoNight Night
 window-padding-x = 10
 window-padding-y = 10
@@ -18,7 +17,6 @@ cursor-style-blink = true
 scrollback-limit = 1000000
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 3
-macos-option-as-alt = left
 clipboard-paste-protection = true
 clipboard-paste-bracketed-safe = true
 copy-on-select = clipboard
@@ -48,3 +46,6 @@ keybind = global:ctrl+grave_accent=toggle_quick_terminal
 
 # Empty values reset the configuration to the default value
 #font-family =
+
+# 平台/机器差异用 ? 可选 include，不存在自动忽略（Ghostty 官方特性）
+config-file = ?~/.config/ghostty/config.darwin
