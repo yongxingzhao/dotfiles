@@ -15,3 +15,8 @@
 {{- if ne .chezmoi.hostname "YoXi-Mac" }}
 .config/ghostty/config.darwin
 {{- end }}
+
+# 仅 YoXi-Arch 生效，Mac 不部署 Linux 专属优化
+{{- if ne .chezmoi.hostname "YoXi-Arch" }}
+.config/ghostty/config.linux
+{{- end }}

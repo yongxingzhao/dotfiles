@@ -1,0 +1,13 @@
+# Linux/Wayland (Hyprland) 专属优化 —— 仅 YoXi-Arch 生效
+# 由通用 config.ghostty 里的 config-file 可选引入
+
+# 关闭 Ghostty 内部 blur，交给 Hyprland 合成器 blur
+# （Hyprland 全局 decoration blur 已开启，会自动接管窗口半透明模糊；
+#   避免 Ghostty 内部 blur 与合成器 blur 双重叠加 + 非 KDE Wayland 下不可控的 GPU 开销）
+background-blur = false
+
+# 快捷终端浮在所有窗口之上（GTK Wayland only，默认 top 会被其他窗口盖住）
+gtk-quick-terminal-layer = overlay
+
+# 快捷终端唯一标识，方便 Hyprland 脚本/规则识别
+gtk-quick-terminal-namespace = yoxi-hypr

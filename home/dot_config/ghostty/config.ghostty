@@ -49,3 +49,4 @@ keybind = global:ctrl+grave_accent=toggle_quick_terminal
 
 # 平台/机器差异用 ? 可选 include，不存在自动忽略（Ghostty 官方特性）
 config-file = ?~/.config/ghostty/config.darwin
+config-file = ?~/.config/ghostty/config.linux
