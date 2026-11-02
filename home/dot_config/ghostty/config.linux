@@ -1,6 +1,7 @@
 # Linux/Wayland (Hyprland) 专属优化 —— 仅 YoXi-Arch 生效
 # 由通用 config.ghostty 里的 config-file 可选引入
 
+language = zh
 theme = light:TokyoNight Day,dark:TokyoNight Night
 
 # 关闭 Ghostty 内部 blur，交给 Hyprland 合成器 blur
