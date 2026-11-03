@@ -1,5 +1,5 @@
 language = zh
-font-size = 10
+font-size = 9
 theme = light:TokyoNight Day,dark:TokyoNight Night
 
 command = /usr/bin/zellij
