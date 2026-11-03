@@ -1,13 +1,11 @@
-# macOS 专用覆盖 —— 1080p 1x 无 HiDPI，字体需放大
-theme = light:TokyoNight Day,dark:JetBrains Darcula
 font-size = 13
 window-colorspace = display-p3
-
-# --- 以下为 macOS 专属配置（从通用 config.ghostty 迁移，Linux 上无效）---
+background-blur = macos-glass-clear
 macos-icon = glass
 macos-titlebar-style = hidden
 macos-option-as-alt = left
-
-# 玻璃效果 + 关闭阴影（配合透明背景更美观）
-macos-glass-regular
 macos-window-shadow = false
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+
+command = /opt/homebrew/bin/zellij
