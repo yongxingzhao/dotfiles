@@ -23,7 +23,7 @@ alias lll='eza -lha --icons=always --color=always --git --extended'
 # ===========================
 # ****** @Command vim ******
 # ===========================
-alias vimrc="vim $HOME/.vim/vimrc"
+alias vimrc="vim $HOME/.config/vim/vimrc"
 
 # ===========================
 # ****** @Command nvim ******
