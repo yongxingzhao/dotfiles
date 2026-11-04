@@ -20,3 +20,13 @@
 {{- if ne .chezmoi.hostname "YoXi-Arch" }}
 .config/ghostty/config.linux
 {{- end }}
+
+# Kitty 按主机加载：arch.conf 仅 Arch、darwin.conf 仅 Mac
+# 共享 kitty.conf 用 globinclude kitty.d/*.conf 拉取，
+# 各主机只部署自己的 delta 文件，确保 glob 只匹配到对应文件。
+{{- if ne .chezmoi.hostname "YoXi-Arch" }}
+.config/kitty/kitty.d/arch.conf
+{{- end }}
+{{- if ne .chezmoi.hostname "YoXi-Mac" }}
+.config/kitty/kitty.d/darwin.conf
+{{- end }}
