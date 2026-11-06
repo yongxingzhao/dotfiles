@@ -89,7 +89,14 @@ end)
 hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1.25 })
 -- 2026-11-01: 坐标修正 1920x0 -> 1536x0
 -- eDP-1 1920x1080@1.25 逻辑宽 1536，原 1920 会在两屏间留 384px 空隙
-hl.monitor({ output = "HDMI-A-1", mode = "2560x1440@60", position = "1536x0", scale = 1.25 })
+hl.monitor({
+	output = "HDMI-A-1",
+	mode = "2560x1440@60",
+	position = "1536x0",
+	scale = 1.25,
+	bitdepth = 10,
+	cm = "auto",
+})
 
 -- ---- window rules (was windowrules.conf) ---------------------------------
 -- 画中画 (原样移植)
@@ -182,7 +189,15 @@ end
 
 local function set_internal_disabled(disabled, why)
 	local ok, err = pcall(hl.monitor, { output = INT_MONITOR, disabled = disabled })
-	lid_log((disabled and "OFF " or "ON  ") .. INT_MONITOR .. "  (" .. why .. ")  ok=" .. tostring(ok) .. (err and ("  err=" .. tostring(err)) or ""))
+	lid_log(
+		(disabled and "OFF " or "ON  ")
+			.. INT_MONITOR
+			.. "  ("
+			.. why
+			.. ")  ok="
+			.. tostring(ok)
+			.. (err and ("  err=" .. tostring(err)) or "")
+	)
 end
 
 hl.timer(function()
@@ -209,4 +224,3 @@ hl.timer(function()
 end, { timeout = 2000, type = "repeat" })
 
 lid_log("config loaded, lid timer armed")
-
